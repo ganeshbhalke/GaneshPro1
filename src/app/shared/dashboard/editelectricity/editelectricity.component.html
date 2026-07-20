@@ -1,0 +1,266 @@
+<div class="container mt-5">
+
+  <div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+      <div class="card shadow-lg border-0">
+
+        <div class="card-header bg-warning text-dark text-center">
+
+          <h2 class="mb-0">
+             Edit Electricity
+          </h2>
+
+        </div>
+
+        <div class="card-body">
+
+          <form
+            [formGroup]="electricityForm"
+            (ngSubmit)="update()">
+
+            <!-- Title -->
+            <div class="mb-3">
+
+              <label class="form-label fw-bold">
+                Title
+              </label>
+
+              <input
+                type="text"
+                class="form-control"
+                formControlName="title"
+                placeholder="Enter Title">
+
+            </div>
+
+            <!-- Image -->
+            <div class="mb-3">
+
+              <label class="form-label fw-bold">
+                Image URL
+              </label>
+
+              <input
+                type="text"
+                class="form-control"
+                formControlName="image"
+                placeholder="Paste Image URL">
+
+            </div>
+
+            <!-- Preview Image -->
+            <div
+              class="text-center mb-3"
+              *ngIf="electricityForm.get('image')?.value">
+
+              <img
+                [src]="electricityForm.get('image')?.value"
+                class="img-fluid rounded shadow"
+                style="max-height:220px"
+                alt="Preview">
+
+            </div>
+
+            <!-- Description -->
+            <div class="mb-3">
+
+              <label class="form-label fw-bold">
+                Description
+              </label>
+
+              <textarea
+                rows="4"
+                class="form-control"
+                formControlName="description"
+                placeholder="Enter Description">
+              </textarea>
+
+            </div>
+
+            <!-- Voltage -->
+            <div class="mb-3">
+
+              <label class="form-label fw-bold">
+                Voltage
+              </label>
+
+              <input
+                type="text"
+                class="form-control"
+                formControlName="voltage"
+                placeholder="Enter Voltage">
+
+            </div>
+
+            <!-- Power -->
+            <div class="mb-3">
+
+              <label class="form-label fw-bold">
+                Power
+              </label>
+
+              <input
+                type="text"
+                class="form-control"
+                formControlName="power"
+                placeholder="Enter Power">
+
+            </div>
+
+            <!-- Category -->
+            <div class="mb-4">
+
+              <label class="form-label fw-bold">
+                Category
+              </label>
+
+              <select
+                class="form-select"
+                formControlName="category">
+
+                <option value="Solar Panel">Solar Panel</option>
+              
+  <option value="">Select Category</option>
+
+  <option value="Solar Panel">Solar Panel</option>
+  <option value="Solar Inverter">Solar Inverter</option>
+  <option value="Electric Motor">Electric Motor</option>
+  <option value="Transformer">Transformer</option>
+  <option value="Battery">Battery</option>
+  <option value="Generator">Generator</option>
+  <option value="Circuit Breaker">Circuit Breaker</option>
+  <option value="Switch Gear">Switch Gear</option>
+  <option value="Power Cable">Power Cable</option>
+  <option value="Electrical Wire">Electrical Wire</option>
+  <option value="Distribution Board">Distribution Board</option>
+  <option value="Control Panel">Control Panel</option>
+  <option value="Capacitor Bank">Capacitor Bank</option>
+  <option value="Relay">Relay</option>
+  <option value="Contactor">Contactor</option>
+  <option value="MCB">MCB</option>
+  <option value="MCCB">MCCB</option>
+  <option value="ELCB">ELCB</option>
+  <option value="VFD">VFD</option>
+  <option value="UPS">UPS</option>
+  <option value="Lighting">Lighting</option>
+  <option value="Energy Meter">Energy Meter</option>
+  <option value="Earthing Equipment">Earthing Equipment</option>
+  <option value="Substation Equipment">Substation Equipment</option>
+
+</select>
+
+<!-- Manufacturer -->
+<div class="mb-3">
+  <label class="form-label fw-bold">Manufacturer</label>
+  <input
+    type="text"
+    class="form-control"
+    formControlName="manufacturer"
+    placeholder="Enter Manufacturer">
+</div>
+
+<!-- Model Number -->
+<div class="mb-3">
+  <label class="form-label fw-bold">Model Number</label>
+  <input
+    type="text"
+    class="form-control"
+    formControlName="modelNumber"
+    placeholder="Enter Model Number">
+</div>
+
+<!-- Warranty -->
+<div class="mb-3">
+  <label class="form-label fw-bold">Warranty</label>
+  <input
+    type="text"
+    class="form-control"
+    formControlName="warranty"
+    placeholder="Example: 5 Years">
+</div>
+
+<!-- Country -->
+<div class="mb-3">
+  <label class="form-label fw-bold">Country</label>
+  <input
+    type="text"
+    class="form-control"
+    formControlName="country"
+    placeholder="Made In">
+</div>
+
+<!-- Efficiency -->
+<div class="mb-3">
+  <label class="form-label fw-bold">Efficiency</label>
+  <input
+    type="text"
+    class="form-control"
+    formControlName="efficiency"
+    placeholder="Example: 98%">
+</div>
+
+<!-- Installation Type -->
+<div class="mb-3">
+  <label class="form-label fw-bold">Installation Type</label>
+
+  <select
+    class="form-select"
+    formControlName="installationType">
+
+    <option value="">Select Installation Type</option>
+    <option value="Indoor">Indoor</option>
+    <option value="Outdoor">Outdoor</option>
+    <option value="Wall Mounted">Wall Mounted</option>
+    <option value="Ground Mounted">Ground Mounted</option>
+    <option value="Pole Mounted">Pole Mounted</option>
+
+  </select>
+</div>
+
+<!-- Weight -->
+<div class="mb-4">
+  <label class="form-label fw-bold">Weight</label>
+  <input
+    type="text"
+    class="form-control"
+    formControlName="weight"
+    placeholder="Example: 220 Kg">
+</div>
+
+            </div>
+
+            <!-- Buttons -->
+            <div class="d-flex gap-2 ">
+
+              <button
+                type="submit"
+                class="btn btn-warning w-100 mr-3   ">
+
+                💾 Update Electricity
+
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-secondary w-100 mr-2"
+                routerLink="/dashboard">
+
+                ↩ Back
+
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

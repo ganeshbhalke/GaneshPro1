@@ -1,0 +1,278 @@
+
+<app-loader *ngIf="loading"></app-loader>
+<div class="container mt-4" *ngIf="!loading">
+  <!-- Search & Filter -->
+ <!-- ===================== Toolbar ===================== -->
+
+<div class="card shadow-sm border-0 mb-4">
+
+  <div class="card-body">
+
+    <div class="row g-3 align-items-center">
+
+      <!-- Search -->
+      <div class="col-lg-3">
+
+        <input
+          type="text"
+          class="form-control"
+          placeholder="🔍 Search Equipment..."
+          [(ngModel)]="searchText"
+          (keyup)="searchProduct()">
+
+      </div>
+
+      <!-- Category -->
+      <div class="col-lg-2">
+
+        <select
+          class="form-select form-control"
+          [(ngModel)]="selectedCategory"
+          (change)="filterCategory()">
+
+          <option
+            *ngFor="let category of categories"
+            [value]="category">
+
+            {{category}}
+
+          </option>
+
+        </select>
+
+      </div>
+
+      <!-- Sort -->
+      <div class="col-lg-2">
+
+        <select
+          class="form-select"
+          (change)="sortData($event)">
+
+          <option value="">Sort By</option>
+          <option value="az">Name (A-Z)</option>
+          <option value="za">Name (Z-A)</option>
+          <option value="category">Category</option>
+
+        </select>
+
+      </div>
+
+      <!-- Buttons -->
+      <div class="col-lg-5 text-lg-end ">
+
+        <button
+          class="btn btn-outline-danger mr-2"
+          (click)="exportPDF()">
+
+          📄 PDF
+
+        </button>
+
+        <button
+          class="btn btn-outline-success mr-2"
+          (click)="exportExcel()">
+
+          📊 Excel
+
+        </button>
+
+        <button
+          class="btn btn-outline-primary mr-2"
+          (click)="refreshData()">
+
+          🔄 Refresh
+
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- Total Records
+
+    <div class="mt-3">
+
+      <span class="badge bg-dark fs-6 gani">
+
+        Total Records :
+        {{filteredElectricity.length}}
+
+      </span>
+
+    </div>
+
+  </div>
+
+</div> -->
+
+  <!-- Electricity Cards -->
+  <div class="row mt-5">
+
+    <div
+  class="col-xl-4 col-lg-6 col-md-6 mb-4"
+ *ngFor="let item of paginatedData">
+
+  <div class="card equipment-card border-0 shadow-sm h-100">
+
+    <!-- Image -->
+    <div class="image-box">
+
+      <img
+        [src]="item.image"
+        class="card-img-top equipment-img"
+        alt="{{item.title}}">
+
+      <span class="badge bg-success category-badge">
+        {{item.category}}
+      </span>
+
+    </div>
+
+    <!-- Body -->
+    <div class="card-body">
+
+      <h5 class="fw-bold mb-2">
+        {{item.title}}
+      </h5>
+
+      <p class="text-muted small">
+        {{item.description | slice:0:90}}...
+      </p>
+
+      <div class="row mt-3">
+
+        <div class="col-6">
+
+          <small class="text-secondary">
+            Voltage
+          </small>
+
+          <h6>{{item.voltage}}</h6>
+
+        </div>
+
+        <div class="col-6">
+
+          <small class="text-secondary">
+            Power
+          </small>
+
+          <h6>{{item.power}}</h6>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+
+    <div class="card-footer bg-white border-0">
+
+      <div class="d-grid gap-2">
+
+        <button
+          class="btn btn-outline-primary"
+          (click)="readMore(item.id!)">
+
+           Read More...
+
+        </button>
+
+        <div class="row">
+
+          <div class="col-6">
+
+            <button
+              class="btn btn-warning w-100"
+              (click)="edit(item.id!)">
+
+               Edit
+
+            </button>
+
+          </div>
+
+          <div class="col-6">
+
+            <button
+              class="btn btn-danger w-100"
+              (click)="delete(item.id!)">
+
+               Delete
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+ <!-- ================= Empty State ================= -->
+
+<div
+  class="empty-state py-5 text-center"
+  *ngIf="!loading && filteredElectricity.length === 0">
+
+  <img
+    src="https://cdn-icons-png.flaticon.com/512/7486/7486740.png"
+    class="img-fluid mb-4"
+    width="180"
+    alt="No Data">
+
+  <h3 class="fw-bold">
+    No Equipment Found
+  </h3>
+
+  <p class="text-muted">
+
+    We couldn't find any equipment matching your search.
+
+  </p>
+
+  <button
+    routerLink="/add"
+    class="btn btn-primary px-4">
+
+    ➕ Add New Equipment
+
+  </button>
+
+</div>
+
+<!-- ================= Pagination ================= -->
+
+<div
+  class="pagination-wrapper"
+  *ngIf="filteredElectricity.length">
+
+  <button
+    class="btn btn-outline-secondary"
+    (click)="previousPage()">
+    ◀ Previous
+  </button>
+
+  <button
+    class="btn btn-primary">
+    {{ currentPage }}
+  </button>
+
+  <button
+    class="btn btn-outline-secondary"
+    (click)="nextPage()">
+    Next ▶
+  </button>
+
+</div>
+
+</div>
+
+</div>

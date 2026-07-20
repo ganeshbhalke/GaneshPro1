@@ -1,0 +1,92 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+
+  <div class="container-fluid">
+
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold fs-3" routerLink="/dashboard">
+      ⚡ Electricity Management
+    </a>
+
+    <!-- Mobile Toggle -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+<div class="collapse navbar-collapse d-lg-flex justify-content-between" id="menu">
+      <!-- Left Menu -->
+<ul class="navbar-nav ms-4 me-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/dashboard"
+            routerLinkActive="active">
+            Dashboard
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/add"
+            routerLinkActive="active">
+            Add Equipment
+          </a>
+        </li>
+
+      </ul>
+
+      <!-- Right Menu -->
+<ul class="navbar-nav d-flex flex-row align-items-center gap-3">
+        <!-- Notification -->
+        <li class="nav-item gani">
+          <a class="nav-link notification">
+            🔔
+          </a>
+        </li>
+
+        <!-- Profile -->
+        <li class="nav-item me-3">
+
+          <div
+            class="avatar mr-2"
+            (click)="goToProfile()"
+            style="cursor:pointer;">
+
+            <img
+              *ngIf="profileImage"
+              [src]="profileImage"
+              class="avatar-img"
+              alt="Profile">
+
+            <span *ngIf="!profileImage">
+              {{ avatar }}
+            </span>
+
+          </div>
+
+        </li>
+
+        <!-- Logout -->
+        <li class="nav-item ">
+
+          <button
+            class="btn btn-danger logout-btn mr-0"
+            (click)="logout()">
+
+            Logout
+
+          </button>
+
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</nav>

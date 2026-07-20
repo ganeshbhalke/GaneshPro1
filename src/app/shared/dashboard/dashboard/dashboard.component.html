@@ -1,0 +1,62 @@
+<div class="container-fluid mt-5">
+<div class="hero-section mb-4">
+<div class="row align-items-center">
+<div class="col-lg-8">
+<h1>⚡ Electricity Management System</h1>
+<p>Manage all electrical equipment from one modern dashboard.</p>
+<button routerLink="/add" class="btn btn-warning btn-lg me-3 mt-4">
+  ➕ Add Equipment</button>
+</div>
+<div class="col-lg-4 text-center mt-4 mt-lg-0">
+<img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800" class="hero-image" alt="Electricity">
+</div></div></div>
+<div class="row g-4 mb-4">
+<div class="col-xl-2 col-md-4 col-6">
+  <div class="stat-card"><div class="icon">⚡</div>
+  
+  <h3>{{ total }}</h3><p>Total Equipment</p></div></div>
+
+<div class="col-xl-2 col-md-4 col-6">
+  <div class="stat-card"><div class="icon">☀️</div>
+  
+  <h3>{{ solar }}</h3><p>Solar Panel</p></div></div>
+
+<div class="col-xl-2 col-md-4 col-6">
+  <div class="stat-card"><div class="icon">⚙️</div>
+  
+  <h3>{{ motor }}</h3><p>Motor</p></div></div>
+
+<div class="col-xl-2 col-md-4 col-6">
+  <div class="stat-card"><div class="icon">🔋</div>
+  <h3>{{ battery }}</h3><p>Battery</p></div></div>
+
+<div class="col-xl-2 col-md-4 col-6">
+  <div class="stat-card"><div class="icon">🔌</div>
+  
+  <h3>{{ transformer }}</h3><p>Transformer</p></div></div>
+
+<div class="col-xl-2 col-md-4 col-6">
+  <div class="stat-card"><div class="icon">📦</div>
+  
+  <h3>{{ other }}</h3><p>Others</p></div></div>
+</div>
+<div class="row g-4 mb-4">
+<div class="col-lg-8">
+  <div class="chart-card">
+    <h4>📊 Equipment Analytics</h4>
+    <canvas baseChart [data]="barChartData" [options]="barChartOptions" [type]="barChartType">
+
+    </canvas></div></div>
+<div class="col-lg-4">
+  <div class="chart-card">
+    <h4>🥧 Category Distribution</h4>
+    <canvas baseChart [data]="pieChartData" [type]="pieChartType">
+
+    </canvas></div></div>
+</div>
+<div class="chart-card">
+<div class="d-flex justify-content-between align-items-center mb-3">
+<h4 class="mb-0">⚡ Equipment List</h4>
+</div>
+<app-electricity></app-electricity>
+</div></div>

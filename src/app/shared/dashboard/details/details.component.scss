@@ -1,0 +1,269 @@
+/* ===========================
+   Main Details Card
+=========================== */
+
+.details-card{
+    background:#fff;
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+/* ===========================
+   Image
+=========================== */
+
+.image-box{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.product-img{
+    width:100%;
+    max-width:420px;
+    height:420px;
+    object-fit:cover;
+    border-radius:18px;
+    transition:.35s;
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+}
+
+.product-img:hover{
+    transform:scale(1.04);
+}
+
+/* ===========================
+   Content
+=========================== */
+
+.product-content{
+    padding-left:20px;
+}
+
+.product-title{
+    font-size:38px;
+    font-weight:700;
+    color:#1f2937;
+    margin-bottom:10px;
+}
+
+.product-desc{
+    color:#6b7280;
+    font-size:16px;
+    line-height:28px;
+    margin:20px 0 30px;
+}
+
+/* ===========================
+   Badge
+=========================== */
+
+.badge{
+    font-size:14px;
+    padding:8px 14px;
+    border-radius:30px;
+}
+
+/* ===========================
+   Specification Section
+=========================== */
+
+.specification-box{
+    margin-top:20px;
+}
+
+.specification-box h4{
+    font-size:24px;
+    font-weight:700;
+    margin-bottom:20px;
+    color:#111827;
+}
+
+/* ===========================
+   Specification Card
+=========================== */
+
+.spec-card{
+
+    background:#f8fafc;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:15px;
+
+    padding:18px;
+
+    height:100%;
+
+    transition:.3s;
+
+}
+
+.spec-card:hover{
+
+    background:#eff6ff;
+
+    transform:translateY(-5px);
+
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+}
+
+.spec-card small{
+
+    display:block;
+
+    color:#6b7280;
+
+    margin-bottom:8px;
+
+    font-size:13px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+}
+
+.spec-card h6{
+
+    margin:0;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:#111827;
+
+}
+
+/* ===========================
+   Features
+=========================== */
+
+.feature-section{
+
+    background:#f9fafb;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    margin-top:35px;
+
+}
+
+.feature-section h4{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+.feature-section .col-md-6{
+
+    font-size:16px;
+
+    margin-bottom:12px;
+
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.btn{
+
+    min-width:180px;
+
+    height:48px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+.btn-warning:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.btn-outline-secondary:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:991px){
+
+    .product-content{
+
+        padding-left:0;
+
+        margin-top:30px;
+
+    }
+
+    .product-title{
+
+        text-align:center;
+
+        font-size:30px;
+
+    }
+
+    .badge{
+
+        display:inline-block;
+
+        margin-bottom:10px;
+
+    }
+
+    .image-box{
+
+        margin-bottom:20px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .product-img{
+
+        max-width:300px;
+
+        height:300px;
+
+    }
+
+    .btn{
+
+        width:100%;
+
+        margin-bottom:12px;
+
+    }
+
+    .d-flex{
+
+        flex-direction:column;
+
+    }
+
+}

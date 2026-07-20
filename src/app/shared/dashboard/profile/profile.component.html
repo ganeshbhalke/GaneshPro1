@@ -1,0 +1,175 @@
+<div class="container py-5">
+
+  <div class="row justify-content-center">
+
+    <div class="col-lg-10">
+
+      <div class="card shadow-lg border-0 profile-card">
+
+        <div class="card-body p-5">
+
+          <div class="row">
+
+            <!-- Left Side -->
+            <div class="col-lg-4 text-center border-end">
+
+              <div class="profile-image">
+
+                <img
+                  *ngIf="profileImage"
+                  [src]="profileImage"
+                  class="img-fluid rounded-circle profile-img"
+                  alt="Profile">
+
+                <div
+                  *ngIf="!profileImage"
+                  class="avatar-large">
+
+                  {{ avatar }}
+
+                </div>
+
+              </div>
+
+              <h3 class="mt-4 mb-1">
+                {{ userName }}
+              </h3>
+
+              <p class="text-muted">
+                {{ userRole }}
+              </p>
+
+              <!-- Hidden File Input -->
+              <input
+                type="file"
+                accept="image/*"
+                #fileInput
+                hidden
+                (change)="onImageSelected($event)">
+
+              <!-- Change Photo Button -->
+              <button
+                class="btn btn-primary mt-3"
+                (click)="fileInput.click()">
+
+                 Change Photo
+
+              </button>
+
+            </div>
+
+            <!-- Right Side -->
+
+            <div class="col-lg-8">
+
+              <h2 class="mb-4">
+                👤 My Profile
+              </h2>
+
+              <div class="row">
+
+                <div class="col-md-6 mb-4">
+
+                  <label class="form-label">
+                    Full Name
+                  </label>
+
+                  <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="userName">
+
+                </div>
+
+                <div class="col-md-6 mb-4">
+
+                  <label class="form-label">
+                    Email
+                  </label>
+
+                  <input
+                    type="email"
+                    class="form-control"
+                    [(ngModel)]="userEmail">
+
+                </div>
+
+                <div class="col-md-6 mb-4">
+
+                  <label class="form-label">
+                    Phone
+                  </label>
+
+                  <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="userPhone">
+
+                </div>
+
+                <div class="col-md-6 mb-4">
+
+                  <label class="form-label">
+                    Role
+                  </label>
+
+                  <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="userRole">
+
+                </div>
+
+                <div class="col-12 mb-4">
+
+                  <label class="form-label">
+                    Address
+                  </label>
+
+                  <textarea
+                    rows="3"
+                    class="form-control"
+                    [(ngModel)]="userAddress"></textarea>
+
+                </div>
+
+                <div class="col-12 mb-4">
+
+                  <label class="form-label">
+                    About
+                  </label>
+
+                  <textarea
+                    rows="4"
+                    class="form-control"
+                    [(ngModel)]="about"></textarea>
+
+                </div>
+
+              </div>
+
+              <div class="text-end">
+
+                <button
+                  class="btn btn-success btn-lg"
+                  (click)="saveProfile()">
+
+                  💾 Save Profile
+
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

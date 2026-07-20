@@ -1,0 +1,246 @@
+<div class="container py-5" *ngIf="electricity">
+
+  <div class="details-card">
+
+    <div class="row g-4 align-items-start">
+
+      <!-- ================= IMAGE ================= -->
+
+      <div class="col-lg-5">
+
+        <div class="image-box">
+
+          <img
+            [src]="electricity.image"
+            [alt]="electricity.title"
+            class="product-img">
+
+        </div>
+
+      </div>
+
+      <!-- ================= DETAILS ================= -->
+
+      <div class="col-lg-7">
+
+        <div class="product-content ">
+
+          <h1 class="product-title">
+            {{ electricity.title }}
+          </h1>
+
+          <div class="mb-3 ">
+
+            <span class="badge bg-success mr-2">
+              {{ electricity.category }}
+            </span>
+
+            <span class="badge bg-warning text-dark mr-3">
+              ⭐ 4.8 Rating
+            </span>
+
+          </div>
+
+          <p class="product-desc">
+            {{ electricity.description }}
+          </p>
+
+          <!-- Specifications -->
+
+          <div class="specification-box">
+
+            <h4 class="mb-4">
+              Product Specifications
+            </h4>
+
+            <div class="row">
+
+              <div class="col-md-6 mb-3">
+
+                <div class="spec-card">
+
+                  <small>Voltage</small>
+
+                  <h6>{{ electricity.voltage }}</h6>
+
+                </div>
+
+              </div>
+
+              <div class="col-md-6 mb-3">
+
+                <div class="spec-card">
+
+                  <small>Power</small>
+
+                  <h6>{{ electricity.power }}</h6>
+
+                </div>
+
+              </div>
+
+              <div class="col-md-6 mb-3">
+
+                <div class="spec-card">
+
+                  <small>Manufacturer</small>
+
+                  <h6>{{ electricity.manufacturer || '-' }}</h6>
+
+                </div>
+
+              </div>
+
+              <div class="col-md-6 mb-3">
+
+                <div class="spec-card">
+
+                  <small>Model Number</small>
+
+                  <h6>{{ electricity.modelNumber || '-' }}</h6>
+
+                </div>
+
+              </div>
+
+              <div class="col-md-6 mb-3">
+
+                <div class="spec-card">
+
+                  <small>Warranty</small>
+
+                  <h6>{{ electricity.warranty || '-' }}</h6>
+
+                </div>
+
+              </div>
+
+              <div class="col-md-6 mb-3">
+
+                <div class="spec-card">
+
+                  <small>Country</small>
+
+                  <h6>{{ electricity.country || '-' }}</h6>
+
+                </div>
+
+              </div>
+
+              <div class="col-md-6 mb-3">
+
+                <div class="spec-card">
+
+                  <small>Efficiency</small>
+
+                  <h6>{{ electricity.efficiency || '-' }}</h6>
+
+                </div>
+
+              </div>
+
+              <div class="col-md-6 mb-3">
+
+                <div class="spec-card">
+
+                  <small>Installation Type</small>
+
+                  <h6>{{ electricity.installationType || '-' }}</h6>
+
+                </div>
+
+              </div>
+
+              <div class="col-md-6 mb-3">
+
+                <div class="spec-card">
+
+                  <small>Weight</small>
+
+                  <h6>{{ electricity.weight || '-' }}</h6>
+
+                </div>
+
+              </div>
+
+              <div class="col-md-6 mb-3">
+
+                <div class="spec-card">
+
+                  <small>Product ID</small>
+
+                  <h6>{{ electricity.id }}</h6>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Features -->
+
+          <div class="feature-section mt-4">
+
+            <h4 class="mb-3">
+              Key Features
+            </h4>
+
+            <div class="row">
+
+              <div class="col-md-6 mb-2">
+                ✅ High Performance
+              </div>
+
+              <div class="col-md-6 mb-2">
+                ✅ Energy Efficient
+              </div>
+
+              <div class="col-md-6 mb-2">
+                ✅ Industrial Grade Quality
+              </div>
+
+              <div class="col-md-6 mb-2">
+                ✅ Long Service Life
+              </div>
+
+              <div class="col-md-6 mb-2">
+                ✅ Easy Installation
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Buttons -->
+
+          <div class="mt-5 d-flex justify-content-between">
+
+            <button
+              class="btn btn-warning btn-lg"
+              [routerLink]="['/edit', electricity.id]">
+
+               Edit Product
+
+            </button>
+
+            <button
+              class="btn btn-outline-secondary btn-lg"
+              routerLink="/dashboard">
+
+              ← Back
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

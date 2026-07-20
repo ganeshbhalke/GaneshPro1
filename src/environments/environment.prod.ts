@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  baseUrl:'https://crud-genric-fetch-default-rtdb.firebaseio.com'
 };
