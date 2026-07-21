@@ -1,18 +1,13 @@
-<div class="container mt-5">
+<div class="container ">
   <div class="row justify-content-center">
-
-    <div class="col-md-6">
-
-      <div class="card shadow-lg border-0">
-
-        <div class="card-header bg-success text-white text-center">
+    <div class="card-1 col-md-6">
+      <div class=" shadow-lg border-0">
+        <div class="card-header  text-dark text-center">
           <h3>Create Account</h3>
         </div>
 
         <div class="card-body">
-
           <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
-
             <!-- Full Name -->
             <div class="mb-3">
               <label class="form-label">Full Name</label>
@@ -20,11 +15,16 @@
                 type="text"
                 class="form-control"
                 formControlName="fullName"
-                placeholder="Enter Full Name">
+                placeholder="Enter Full Name"
+              />
 
-              <small class="text-danger"
-                *ngIf="registerForm.get('fullName')?.touched &&
-                       registerForm.get('fullName')?.invalid">
+              <small
+                class="text-danger"
+                *ngIf="
+                  registerForm.get('fullName')?.touched &&
+                  registerForm.get('fullName')?.invalid
+                "
+              >
                 Full Name is required
               </small>
             </div>
@@ -36,31 +36,41 @@
                 type="email"
                 class="form-control"
                 formControlName="email"
-                placeholder="Enter Email">
+                placeholder="Enter Email"
+              />
 
-              <small class="text-danger"
-                *ngIf="registerForm.get('email')?.touched &&
-                       registerForm.get('email')?.invalid">
+              <small
+                class="text-danger"
+                *ngIf="
+                  registerForm.get('email')?.touched &&
+                  registerForm.get('email')?.invalid
+                "
+              >
                 Enter a valid Email
               </small>
             </div>
 
             <!-- Mobile Number -->
-<div class="mb-3">
-  <label class="form-label">Mobile Number</label>
+            <div class="mb-3">
+              <label class="form-label">Mobile Number</label>
 
-  <input
-    type="tel"
-    class="form-control"
-    formControlName="mobile"
-    placeholder="+91XXXXXXXXXX">
+              <input
+                type="tel"
+                class="form-control"
+                formControlName="mobile"
+                placeholder="+91XXXXXXXXXX"
+              />
 
-  <small class="text-danger"
-    *ngIf="registerForm.get('mobile')?.touched &&
-           registerForm.get('mobile')?.invalid">
-    Enter a valid mobile number
-  </small>
-</div>
+              <small
+                class="text-danger"
+                *ngIf="
+                  registerForm.get('mobile')?.touched &&
+                  registerForm.get('mobile')?.invalid
+                "
+              >
+                Enter a valid mobile number
+              </small>
+            </div>
 
             <!-- Password -->
             <div class="mb-3">
@@ -69,11 +79,16 @@
                 type="password"
                 class="form-control"
                 formControlName="password"
-                placeholder="Enter Password">
+                placeholder="Enter Password"
+              />
 
-              <small class="text-danger"
-                *ngIf="registerForm.get('password')?.touched &&
-                       registerForm.get('password')?.invalid">
+              <small
+                class="text-danger"
+                *ngIf="
+                  registerForm.get('password')?.touched &&
+                  registerForm.get('password')?.invalid
+                "
+              >
                 Password must be at least 6 characters
               </small>
             </div>
@@ -85,11 +100,16 @@
                 type="password"
                 class="form-control"
                 formControlName="confirmPassword"
-                placeholder="Confirm Password">
+                placeholder="Confirm Password"
+              />
 
-              <small class="text-danger"
-                *ngIf="registerForm.get('confirmPassword')?.touched &&
-                       registerForm.get('confirmPassword')?.invalid">
+              <small
+                class="text-danger"
+                *ngIf="
+                  registerForm.get('confirmPassword')?.touched &&
+                  registerForm.get('confirmPassword')?.invalid
+                "
+              >
                 Confirm Password is required
               </small>
             </div>
@@ -97,19 +117,14 @@
             <button class="btn btn-success w-100" type="submit">
               Register
             </button>
-
           </form>
 
           <div class="text-center mt-3">
             Already have an account?
             <a routerLink="/login">Login</a>
           </div>
-
         </div>
-
       </div>
-
     </div>
-
   </div>
 </div>

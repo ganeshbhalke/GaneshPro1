@@ -1,6 +1,13 @@
 body{
     background: #f4f7fb;
 }
+.container{
+    background: #EEAECA;
+background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+max-width: 100%;
+padding-top: 50px;
+}
+
 
 .card{
     border-radius: 20px;
@@ -8,7 +15,6 @@ body{
 }
 
 .card-header{
-    background: linear-gradient(135deg,#198754,#20c997);
     padding: 20px;
 }
 
@@ -34,7 +40,7 @@ body{
 }
 
 .form-control:focus{
-    border-color:#198754;
+    border-color:#000000;
     box-shadow:0 0 8px rgba(25,135,84,.3);
 }
 
