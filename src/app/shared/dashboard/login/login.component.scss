@@ -3,7 +3,8 @@
 .login-container {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  background: #2A7B9B;
+background: linear-gradient(134deg, rgba(42, 123, 155, 1) 0%, rgba(0, 0, 0, 1) 0%, rgba(49, 214, 69, 1) 60%, rgba(173, 8, 255, 1) 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,11 +16,11 @@
 .login-card {
   width: 100%;
   max-width: 420px;
-  background: #fff;
   border-radius: 15px;
   padding: 35px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, .2);
 }
+
 
 /* Heading */
 
@@ -38,7 +39,7 @@
 
 .login-header p {
   margin-top: 8px;
-  color: #6b7280;
+  color: #222d44;
   font-size: 15px;
 }
 

@@ -2,13 +2,10 @@
   HOME PAGE WORKING ✅
 </h1> -->
 
-
 <!-- ================= NAVBAR ================= -->
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
-
   <div class="container ganesh">
-
     <a class="navbar-brand fw-bold" routerLink="/">
       ⚡ Electricity Management
     </a>
@@ -16,20 +13,20 @@
     <button
       class="navbar-toggler"
       type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#homeMenu">
-
+      data-toggle="collapse"
+      data-target="#homeMenu"
+      aria-controls="homeMenu"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
-
     </button>
 
     <div class="collapse navbar-collapse" id="homeMenu">
-
       <!-- Left Menu -->
       <ul class="navbar-nav ms-4">
-
         <li class="nav-item">
-          <a class="nav-link active" routerLink="/">Home</a>
+          <a class="nav-link active" href="#hero">Home</a>
         </li>
 
         <li class="nav-item">
@@ -43,40 +40,26 @@
         <li class="nav-item">
           <a class="nav-link" href="#contact">Contact</a>
         </li>
-
       </ul>
 
       <!-- Right Side Buttons -->
-      <div class="ms-auto d-flex gap-2 rt-btn">
+      <div class="ms-auto d-flex gap-2 btn-sec">
+        <button class="btn btn-light" routerLink="/login">Login</button>
 
-        <button
-          class="btn btn-light "
-          routerLink="/login">
-          Login
+        <button class="btn btn-secondary" routerLink="/register">
+          Register
         </button>
-
-       <button class="btn btn-secondary" routerLink="/register">
-    Register
-</button>
-
       </div>
-
     </div>
-
   </div>
-
 </nav>
 
 <!-- ================= HERO SECTION ================= -->
 
-<section class="hero">
-
+<section class="hero" id="hero">
   <div class="container">
-
     <div class="row align-items-center">
-
       <div class="col-lg-6">
-
         <span class="badge bg-warning text-dark mb-3 px-3 py-2">
           ⚡ Smart Electricity Management
         </span>
@@ -86,64 +69,52 @@
         </h1>
 
         <p class="lead text-muted mb-4">
-          A modern Electricity Management System that helps you manage,
-          monitor and organize electrical equipment with secure login,
-          PDF & Excel export, search, filters and a responsive dashboard.
+          A modern Electricity Management System that helps you manage, monitor
+          and organize electrical equipment with secure login, PDF & Excel
+          export, search, filters and a responsive dashboard.
         </p>
 
-        <button
-          class="btn btn-primary btn-lg mr-3"
-          routerLink="/register">
+        <button class="btn btn-primary btn-lg mr-3" routerLink="/register">
           Get Started
         </button>
 
-       <button>
-        <a href="https://angular-qa.vercel.app/"
-   class="btn btn-dark btn-lg mr-2 gana"
-   target="_blank">
-   Learn More
-</a>
-</button>
-
+        <button>
+          <a
+            href="https://angular-qa.vercel.app/"
+            class="btn btn-dark btn-lg mr-2 gana"
+            target="_blank"
+          >
+            Learn More
+          </a>
+        </button>
       </div>
 
       <div class="col-lg-6 text-center">
-
         <img
           src="/assets/images/home page img1.jpg"
           class="img-fluid hero-img"
-          alt="Electricity">
-
+          alt="Electricity"
+        />
       </div>
-
     </div>
-
   </div>
-
 </section>
 
 <!-- ================= ABOUT SECTION ================= -->
 
 <section class="about py-5" id="about">
-
   <div class="container">
-
     <div class="row align-items-center">
-
       <div class="col-lg-6 text-center">
-
         <img
           src="/assets/images/home page2.jpg"
           class="img-fluid about-img"
-          alt="About Project">
-
+          alt="About Project"
+        />
       </div>
 
       <div class="col-lg-6">
-
-        <h2 class="fw-bold mb-4">
-          About Our Project
-        </h2>
+        <h2 class="fw-bold mb-4">About Our Project</h2>
 
         <p class="text-muted">
           Electricity Management System is a modern web application developed
@@ -152,308 +123,191 @@
         </p>
 
         <div class="mt-4">
-
           <div class="mb-3">✅ Secure Authentication</div>
           <div class="mb-3">✅ Add, Edit & Delete Equipment</div>
           <div class="mb-3">✅ Search & Category Filter</div>
           <div class="mb-3">✅ PDF & Excel Export</div>
           <div class="mb-3">✅ Responsive Dashboard</div>
-
         </div>
-
       </div>
-
     </div>
-
   </div>
-
 </section>
-
 
 <!-- ================= FEATURES SECTION ================= -->
 
 <section class="features py-5" id="features">
-
-  <div class="container mt-4 ">
-
+  <div class="container mt-4">
     <div class="text-center mb-5">
-
       <h2 class="fw-bold">Our Features</h2>
 
       <p class="text-muted">
         Explore the powerful features of our Electricity Management System.
       </p>
-
     </div>
 
-    <div class="row ">
-
+    <div class="row">
       <div class="col-md-6 col-lg mb-4">
-
         <div class="feature-card text-center">
-
           <div class="feature-icon">⚡</div>
 
           <h4>Dashboard</h4>
 
-          <p>
-            View all electricity equipment in one modern dashboard.
-          </p>
-
+          <p>View all electricity equipment in one modern dashboard.</p>
         </div>
-
       </div>
 
       <div class="col-md-6 col-lg-4 mb-4">
-
         <div class="feature-card text-center">
-
           <div class="feature-icon">🔍</div>
 
           <h4>Smart Search</h4>
 
-          <p>
-            Search equipment instantly using powerful search functionality.
-          </p>
-
+          <p>Search equipment instantly using powerful search functionality.</p>
         </div>
-
       </div>
 
       <div class="col-md-6 col-lg-4 mb-4">
-
         <div class="feature-card text-center">
-
           <div class="feature-icon">📂</div>
 
           <h4>Category Filter</h4>
 
-          <p>
-            Filter equipment based on different categories.
-          </p>
-
+          <p>Filter equipment based on different categories.</p>
         </div>
-
       </div>
 
       <div class="col-md-6 col-lg-4">
-
         <div class="feature-card text-center">
-
           <div class="feature-icon">📄</div>
 
           <h4>PDF Export</h4>
 
-          <p>
-            Export equipment reports into PDF format.
-          </p>
-
+          <p>Export equipment reports into PDF format.</p>
         </div>
-
       </div>
 
       <div class="col-md-6 col-lg-4">
-
         <div class="feature-card text-center">
-
           <div class="feature-icon">📊</div>
 
           <h4>Excel Export</h4>
 
-          <p>
-            Download all equipment data into Excel sheets.
-          </p>
-
+          <p>Download all equipment data into Excel sheets.</p>
         </div>
-
       </div>
 
       <div class="col-md-6 col-lg-4">
-
         <div class="feature-card text-center">
-
           <div class="feature-icon">🔐</div>
 
           <h4>Secure Login</h4>
 
-          <p>
-            Authentication system keeps your application secure.
-          </p>
-
+          <p>Authentication system keeps your application secure.</p>
         </div>
-
       </div>
-
     </div>
-
   </div>
-
 </section>
 
 <!-- ================= STATISTICS ================= -->
 
 <section class="stats py-5">
-
   <div class="container">
-
     <div class="row text-center">
-
       <div class="col-md-3 col-6 mb-4">
-
         <div class="stat-box">
-
           <h2>500+</h2>
 
           <p>Equipment Managed</p>
-
         </div>
-
       </div>
 
       <div class="col-md-3 col-6 mb-4">
-
         <div class="stat-box">
-
           <h2>100+</h2>
 
           <p>PDF Reports</p>
-
         </div>
-
       </div>
 
       <div class="col-md-3 col-6 mb-4">
-
         <div class="stat-box">
-
           <h2>100%</h2>
 
           <p>Secure Login</p>
-
         </div>
-
       </div>
 
       <div class="col-md-3 col-6 mb-4">
-
         <div class="stat-box">
-
           <h2>24/7</h2>
 
           <p>System Available</p>
-
         </div>
-
       </div>
-
     </div>
-
   </div>
-
 </section>
-
 
 <!-- ================= TECHNOLOGIES ================= -->
 
 <section class="technology py-5">
-
   <div class="container">
-
     <div class="text-center mb-5">
+      <h2 class="fw-bold">Technologies Used</h2>
 
-      <h2 class="fw-bold">
-        Technologies Used
-      </h2>
-
-      <p class="text-muted">
-        Built using modern web technologies.
-      </p>
-
+      <p class="text-muted">Built using modern web technologies.</p>
     </div>
 
     <div class="row text-center g-4">
-
       <div class="col-lg-3 col-md-6">
-
         <div class="tech-card">
-
           <h1>🅰️</h1>
 
           <h5>Angular 14</h5>
-
         </div>
-
       </div>
 
       <div class="col-lg-3 col-md-6">
-
         <div class="tech-card">
-
           <h1>🔥</h1>
 
           <h5>Firebase</h5>
-
         </div>
-
       </div>
 
       <div class="col-lg-3 col-md-6">
-
         <div class="tech-card">
-
           <h1 class="gn">B+</h1>
 
           <h5>Bootstrap 5</h5>
-
         </div>
-
       </div>
 
       <div class="col-lg-3 col-md-6">
-
         <div class="tech-card">
-
           <h1 class="gani">TS</h1>
 
           <h5>TypeScript</h5>
-
         </div>
-
       </div>
-
     </div>
-
   </div>
-
 </section>
-
 
 <!-- ================= FOOTER ================= -->
 
 <footer class="footer" id="contact">
-
   <div class="container text-center">
+    <h3>⚡ Electricity Management System</h3>
 
-    <h3>
-      ⚡ Electricity Management System
-    </h3>
+    <p>Developed by <strong>Ganesh Bhalke</strong></p>
 
-    <p>
-      Developed by <strong>Ganesh Bhalke</strong>
-    </p>
+    <p>Angular • Firebase • Bootstrap • TypeScript</p>
 
-    <p>
-      Angular • Firebase • Bootstrap • TypeScript
-    </p>
+    <hr />
 
-    <hr>
-
-    <small>
-
-      © 2026 Electricity Management System. All Rights Reserved.
-
-    </small>
-
+    <small> © 2026 Electricity Management System. All Rights Reserved. </small>
   </div>
-
 </footer>
