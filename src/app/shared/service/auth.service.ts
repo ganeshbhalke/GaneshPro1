@@ -38,7 +38,7 @@ export class AuthService {
 
   // Send OTP
   sendOtp(email: string): Observable<any> {
-    console.log('API URL =>', `${this.api}/send-otp`);
+    
     return this.http.post(`${this.api}/send-otp`, {
       email
     });
