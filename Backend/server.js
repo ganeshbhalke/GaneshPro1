@@ -6,16 +6,21 @@ const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 
-app.use(
-  cors({
-    origin: [
-      "http://localhost:4200",
-      "https://ganesh-pro1-2xnm.vercel.app",
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    credentials: true,
-  })
-);
+const corsOptions = {
+  origin: [
+    "http://localhost:4200",
+    "https://ganesh-pro1-kupp.vercel.app",
+    "https://ganesh-pro1-2xnm.vercel.app",
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
+// ⭐⭐⭐ YE LINE MISSING HAI ⭐⭐⭐
+app.options("*", cors(corsOptions));
 
 app.use(express.json());
 
