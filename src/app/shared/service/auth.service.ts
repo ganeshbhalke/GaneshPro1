@@ -7,8 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private api = 'http://localhost:5000/api/auth';
-
+private api = 'https://ganeshpro1-production.up.railway.app/api/auth';
   constructor(private http: HttpClient) { }
 
   login(email: string): any {
