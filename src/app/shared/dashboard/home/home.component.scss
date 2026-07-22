@@ -326,3 +326,36 @@ button {
 .footer p {
   margin: 8px 0;
 }
+
+
+
+
+
+/* added by pruthviraj */
+@media (max-width:991px){
+
+  .navbar-collapse{
+    display:none;
+    width:100%;
+    margin-top:15px;
+  }
+
+  .navbar-collapse.show{
+    display:block;
+  }
+
+  .navbar-nav{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+  }
+
+  .btn-sec{
+    display:flex;
+    flex-direction:row;
+    align-items:flex-end;
+    margin-top:15px;
+    gap:10px;
+  }
+
+}
