@@ -45,15 +45,18 @@ console.log("sendOtp route hit", req.body);
         });
 
     } catch (err) {
-console.error(err);
-        console.log(err);
+    console.error("MAIL ERROR:");
+    console.error(err);
+    console.error(err.message);
+    console.error(err.code);
+    console.error(err.response);
 
-        res.status(500).json({
-            success: false,
-            message: "Failed to Send OTP"
-        });
-
-    }
+    return res.status(500).json({
+        success: false,
+        message: "Failed to Send OTP",
+        error: err.message
+    });
+}
 
 };
 
