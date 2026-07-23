@@ -1,22 +1,18 @@
 require("dotenv").config();
-
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,
+  requireTLS: true,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
-});
-
-// Verify transporter
-transporter.verify((err, success) => {
-  if (err) {
-    console.error("MAIL ERROR:", err);
-  } else {
-    console.log("✅ Mail Server Connected");
-  }
+  connectionTimeout: 30000,
+  greetingTimeout: 30000,
+  socketTimeout: 30000,
 });
 
 module.exports = transporter;
