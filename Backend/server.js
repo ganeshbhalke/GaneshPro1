@@ -14,9 +14,11 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 
 app.get("/", (req, res) => {
-  res.status(200).json({
+  res.json({
     success: true,
-    message: "Backend Running Successfully 🚀",
+    version: "a2caad6",
+    time: new Date().toISOString(),
+    message: "Ganesh Backend New"
   });
 });
 
