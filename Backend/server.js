@@ -6,25 +6,33 @@ const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 
-const corsOptions = {
-  origin: [
-    "http://localhost:4200",
-    "https://ganesh-pro1-kupp.vercel.app",
-    "https://ganesh-pro1-2xnm.vercel.app",
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true,
-};
+const allowedOrigins = [
+  "http://localhost:4200",
+  "https://ganesh-pro1-kupp.vercel.app",
+  "https://ganesh-pro1-2xnm.vercel.app",
+];
 
-app.use(cors(corsOptions));
-
-// ⭐⭐⭐ YE LINE MISSING HAI ⭐⭐⭐
-app.options("*", cors(corsOptions));
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      return callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
+
+app.get("/", (req, res) => {
+  res.json({ success: true, message: "Backend Running" });
+});
 
 const PORT = process.env.PORT || 5000;
 

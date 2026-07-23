@@ -3,8 +3,9 @@ const otpGenerator = require("otp-generator");
 const otpStore = require("../utils/otpStore");
 
 // Send OTP
-exports.sendOtp = async (req, res) => {
 
+exports.sendOtp = async (req, res) => {
+console.log("sendOtp route hit", req.body);
     const { email } = req.body;
 
     if (!email) {
@@ -44,7 +45,7 @@ exports.sendOtp = async (req, res) => {
         });
 
     } catch (err) {
-
+console.error(err);
         console.log(err);
 
         res.status(500).json({
