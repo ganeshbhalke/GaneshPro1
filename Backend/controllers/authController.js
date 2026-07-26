@@ -31,7 +31,7 @@ exports.sendOtp = async (req, res) => {
     console.log("📧 Sending OTP To:", email);
 
     const { data, error } = await resend.emails.send({
-  from: "Electricity Management <onboarding@resend.dev>",
+from: "Electricity Management <noreply@YOURDOMAIN.com>",
   to: [email],
   subject: "Electricity Management OTP",
   html: `
