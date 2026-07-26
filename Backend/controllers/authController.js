@@ -52,8 +52,7 @@ exports.sendOtp = async (req, res) => {
       `,
     };
 
-    const data = await brevo.sendTransacEmail(sendSmtpEmail);
-
+const data = await brevo.transactionalEmails.sendTransacEmail(sendSmtpEmail);
     console.log("Mail Sent:", data);
 
     return res.status(200).json({
