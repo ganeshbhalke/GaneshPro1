@@ -1,6 +1,5 @@
 const otpGenerator = require("otp-generator");
-const transporter = require("../config/mailConfig");
-
+const resend = require("../config/mailConfig");
 // Temporary OTP Store
 const otpStore = {};
 
@@ -31,18 +30,22 @@ exports.sendOtp = async (req, res) => {
   try {
     console.log("📧 Sending OTP To:", email);
 
-    const info = await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: email,
-      subject: "Electricity Management OTP",
-      html: `
-        <h2>Email Verification</h2>
-        <h3>Your OTP is : <b>${otp}</b></h3>
-        <p>This OTP is valid for 5 minutes.</p>
-      `,
-    });
+    const { data, error } = await resend.emails.send({
+  from: "Electricity Management <onboarding@resend.dev>",
+  to: [email],
+  subject: "Electricity Management OTP",
+  html: `
+    <h2>Email Verification</h2>
+    <h3>Your OTP is: <b>${otp}</b></h3>
+    <p>This OTP is valid for 5 minutes.</p>
+  `,
+});
 
-    console.log("✅ Mail Sent:", info.response);
+if (error) {
+  throw new Error(error.message);
+}
+
+console.log("Mail Sent:", data);
 
     return res.status(200).json({
       success: true,
