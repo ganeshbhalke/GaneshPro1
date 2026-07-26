@@ -1,60 +1,106 @@
+const otpGenerator = require("otp-generator");
+const transporter = require("../config/mailConfig");
+
+// Temporary OTP Store
+const otpStore = {};
+
+// ==========================
 // Send OTP
+// ==========================
 exports.sendOtp = async (req, res) => {
+  const { email } = req.body;
 
-    const { email } = req.body;
+  if (!email) {
+    return res.status(400).json({
+      success: false,
+      message: "Email is required",
+    });
+  }
 
-    if (!email) {
-        return res.status(400).json({
-            success: false,
-            message: "Email is required"
-        });
-    }
+  const otp = otpGenerator.generate(6, {
+    upperCaseAlphabets: false,
+    lowerCaseAlphabets: false,
+    specialChars: false,
+  });
 
-    const otp = otpGenerator.generate(6, {
-        upperCaseAlphabets: false,
-        lowerCaseAlphabets: false,
-        specialChars: false
+  otpStore[email] = {
+    otp,
+    expiresAt: Date.now() + 5 * 60 * 1000, // 5 Minutes
+  };
+
+  try {
+    console.log("📧 Sending OTP To:", email);
+
+    const info = await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: "Electricity Management OTP",
+      html: `
+        <h2>Email Verification</h2>
+        <h3>Your OTP is : <b>${otp}</b></h3>
+        <p>This OTP is valid for 5 minutes.</p>
+      `,
     });
 
-    otpStore[email] = {
-        otp,
-        expiresAt: Date.now() + 5 * 60 * 1000
-    };
+    console.log("✅ Mail Sent:", info.response);
 
-    try {
+    return res.status(200).json({
+      success: true,
+      message: "OTP Sent Successfully",
+    });
+  } catch (err) {
+    console.error("❌ MAIL ERROR:", err);
 
-        console.log("📧 Sending OTP To:", email);
+    return res.status(500).json({
+      success: false,
+      message: "Failed to Send OTP",
+      error: err.message,
+    });
+  }
+};
 
-        const info = await transporter.sendMail({
-            from: process.env.EMAIL_USER,
-            to: email,
-            subject: "Electricity Management OTP",
-            html: `
-                <h2>Email Verification</h2>
-                <h3>Your OTP is : ${otp}</h3>
-                <p>This OTP is valid for 5 minutes.</p>
-            `
-        });
+// ==========================
+// Verify OTP
+// ==========================
+exports.verifyOtp = async (req, res) => {
+  const { email, otp } = req.body;
 
-        console.log("✅ Mail Sent:", info.response);
+  if (!email || !otp) {
+    return res.status(400).json({
+      success: false,
+      message: "Email and OTP are required",
+    });
+  }
 
-        return res.status(200).json({
-            success: true,
-            message: "OTP Sent Successfully"
-        });
+  const storedOtp = otpStore[email];
 
-    } catch (err) {
+  if (!storedOtp) {
+    return res.status(400).json({
+      success: false,
+      message: "OTP not found. Please request a new OTP.",
+    });
+  }
 
-        console.error("❌ MAIL ERROR:");
-        console.error(err);
+  if (Date.now() > storedOtp.expiresAt) {
+    delete otpStore[email];
 
-        return res.status(500).json({
-            success: false,
-            message: "Failed to Send OTP",
-            error: err.message,
-            stack: err.stack
-        });
+    return res.status(400).json({
+      success: false,
+      message: "OTP has expired",
+    });
+  }
 
-    }
+  if (storedOtp.otp !== otp) {
+    return res.status(400).json({
+      success: false,
+      message: "Invalid OTP",
+    });
+  }
 
+  delete otpStore[email];
+
+  return res.status(200).json({
+    success: true,
+    message: "OTP Verified Successfully",
+  });
 };
