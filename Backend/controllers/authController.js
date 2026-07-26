@@ -1,5 +1,6 @@
 const otpGenerator = require("otp-generator");
-const resend = require("../config/mailConfig");
+const brevo = require("../config/mailConfig");
+
 // Temporary OTP Store
 const otpStore = {};
 
@@ -30,22 +31,30 @@ exports.sendOtp = async (req, res) => {
   try {
     console.log("📧 Sending OTP To:", email);
 
-    const { data, error } = await resend.emails.send({
-from: "Electricity Management <noreply@YOURDOMAIN.com>",
-  to: [email],
-  subject: "Electricity Management OTP",
-  html: `
-    <h2>Email Verification</h2>
-    <h3>Your OTP is: <b>${otp}</b></h3>
-    <p>This OTP is valid for 5 minutes.</p>
-  `,
-});
+    // ==========================
+    // Brevo Send Email
+    // ==========================
+    const sendSmtpEmail = {
+      sender: {
+        name: "Electricity Management",
+        email: "ganeshbhalke2004@gmail.com",
+      },
+      to: [
+        {
+          email: email,
+        },
+      ],
+      subject: "Electricity Management OTP",
+      htmlContent: `
+        <h2>Email Verification</h2>
+        <h3>Your OTP is: <b>${otp}</b></h3>
+        <p>This OTP is valid for 5 minutes.</p>
+      `,
+    };
 
-if (error) {
-  throw new Error(error.message);
-}
+    const data = await brevo.sendTransacEmail(sendSmtpEmail);
 
-console.log("Mail Sent:", data);
+    console.log("Mail Sent:", data);
 
     return res.status(200).json({
       success: true,

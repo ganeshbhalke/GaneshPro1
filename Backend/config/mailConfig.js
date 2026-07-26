@@ -11,8 +11,22 @@
 
 // module.exports = transporter;
 
-const { Resend } = require("resend");
+// const { Resend } = require("resend");
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// const resend = new Resend(process.env.RESEND_API_KEY);
 
-module.exports = resend;
+// module.exports = resend;
+
+
+require("dotenv").config();
+
+const brevo = require("@getbrevo/brevo");
+
+const apiInstance = new brevo.TransactionalEmailsApi();
+
+apiInstance.setApiKey(
+  brevo.TransactionalEmailsApiApiKeys.apiKey,
+  process.env.BREVO_API_KEY
+);
+
+module.exports = apiInstance;
