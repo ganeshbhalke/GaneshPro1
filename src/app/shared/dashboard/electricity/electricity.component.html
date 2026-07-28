@@ -23,7 +23,7 @@
       </div>
 
       <!-- Category -->
-      <div class="col-lg-2">
+      <div class="col-lg-2 mt-2">
 
         <select
           class="form-select form-control"
@@ -43,7 +43,7 @@
       </div>
 
       <!-- Sort -->
-      <div class="col-lg-2">
+      <div class="col-lg-2 select">
 
         <select
           class="form-select"
@@ -59,10 +59,10 @@
       </div>
 
       <!-- Buttons -->
-      <div class="col-lg-5 text-lg-end ">
+      <div class="col-lg-5 text-lg-end hipen">
 
         <button
-          class="btn btn-outline-danger mr-2"
+          class="btn btn-outline-danger"
           (click)="exportPDF()">
 
           📄 PDF
@@ -70,7 +70,7 @@
         </button>
 
         <button
-          class="btn btn-outline-success mr-2"
+          class="btn btn-outline-success "
           (click)="exportExcel()">
 
           📊 Excel
@@ -78,7 +78,7 @@
         </button>
 
         <button
-          class="btn btn-outline-primary mr-2"
+          class="btn btn-outline-primary "
           (click)="refreshData()">
 
           🔄 Refresh
@@ -251,11 +251,11 @@
 <!-- ================= Pagination ================= -->
 
 <div
-  class="pagination-wrapper"
+  class="paginatio"
   *ngIf="filteredElectricity.length">
 
   <button
-    class="btn btn-outline-secondary"
+    class="btn btn-outline-secondary btn-s"
     (click)="previousPage()">
     ◀ Previous
   </button>
@@ -266,7 +266,7 @@
   </button>
 
   <button
-    class="btn btn-outline-secondary"
+    class="btn btn-outline-secondary btn-s"
     (click)="nextPage()">
     Next ▶
   </button>

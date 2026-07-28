@@ -125,6 +125,46 @@ app-electricity{
     display:block;
     margin-top:20px;
 }
+.hang{
+    margin-bottom: 20px;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: fadeAnimation 12s infinite; /* Total duration: 12 seconds */
+}
+
+/* Stagger the start time for each image (Total duration / Number of images) */
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 4s; }
+.slide:nth-child(3) { animation-delay: 8s; }
+.slide:nth-child(4) { animation-delay: 12s; }
+.slide:nth-child(5) { animation-delay: 16s; }
+.slide:nth-child(6) { animation-delay: 20s; }
+.slide:nth-child(7) { animation-delay: 24s; }
+
+@keyframes fadeAnimation {
+  0% { opacity: 0; }
+  10% { opacity: 1; }  /* Fade in */
+  33% { opacity: 1; }  /* Image stays visible */
+  43% { opacity: 0; }  /* Fade out */
+  100% { opacity: 0; } /* Rest of the loop hidden */
+}
+
 
 /* ===========================
    Tablet
@@ -149,8 +189,12 @@ app-electricity{
 canvas{
     height:300px !important;
 }
+.hang{
+    margin-bottom: 20px;
+}
 
 }
+
 
 /* ===========================
    Mobile
@@ -209,6 +253,15 @@ canvas{
 canvas{
     height:250px !important;
 }
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 200px;
+  overflow: hidden;
+}
+
 
 }
 

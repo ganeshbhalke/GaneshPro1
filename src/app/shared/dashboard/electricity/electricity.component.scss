@@ -259,6 +259,21 @@
     margin-bottom:12px;
 
 }
+.hipen button {
+margin-right: 12px;
+}
+.paginatio{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+
+}
+.paginatio .btn-s{
+  margin: 2px;
+}
 
 
 /* ===========================
@@ -272,6 +287,10 @@
         height:220px;
 
     }
+    .hipen button {
+margin-right: 0px;
+}
+
 
 }
 
@@ -307,6 +326,31 @@
         flex-direction:column;
 
     }
+.hipen {
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+.select select{
+  width: 100%;
+  margin: 12px 0px;
+  
+}
+.paginatio{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+
+
+}
+.paginatio .btn-s{
+  width: 30%;
+  font-size: 12px;
+}
 
 }
 
