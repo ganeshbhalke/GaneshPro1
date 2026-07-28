@@ -179,6 +179,11 @@ font-size: 30px;
 ================================ */
 
 @media(max-width:991px){
+.navbar-brand{
+
+    font-size:22px;
+
+}
 
 .navbar{
     padding:12px 18px;
@@ -186,10 +191,12 @@ font-size: 30px;
 
 .navbar-nav{
     margin-top:15px;
+    align-items: end;
+    padding-right: 12px;
 }
 
 .nav-item{
-    margin: 6px 0;
+    margin: 6px 0px;
 }
 
 .logout-btn{
@@ -210,9 +217,13 @@ font-size: 30px;
 
 .navbar-brand{
 
-    font-size:22px;
+    font-size:15px;
 
 }
+.navbar{
+    padding:2px;
+}
+
 
 .navbar-nav .nav-link{
 
@@ -232,6 +243,33 @@ font-size: 30px;
 
     font-size:20px;
 
+}
+
+}
+
+.navbar-menu{
+    display:flex;
+    align-items:flex-end;
+}
+
+.navbar-toggler{
+    display:none;
+}
+
+@media (max-width:991px){
+
+.navbar-toggler{
+    display:block;
+}
+
+.navbar-menu{
+    display:none;
+    width:100%;
+    flex-direction:column;
+}
+
+.navbar-menu.active{
+    display:flex;
 }
 
 }
