@@ -8,8 +8,8 @@ import Swal from 'sweetalert2';
 })
 export class ProfileComponent implements OnInit {
 
-  userName: string = 'Ganesh Bhalke';
-  userEmail: string = 'ganesh@gmail.com';
+  userName: string = '';
+  userEmail: string = 'abc123@gmail.com';
   userPhone: string = '';
   userRole: string = 'Angular Developer';
   userAddress: string = '';
