@@ -1,0 +1,32 @@
+.kapil {
+  margin-top: 70px;
+}
+.bgs {
+}
+.bgs h2{
+    color: black;
+
+}
+.card {
+  border-radius: 20px;
+  overflow: hidden;
+}
+.card-body {
+  /* From https://css.glass */
+  background: rgba(129, 127, 127, 0.3);
+
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.1px);
+  -webkit-backdrop-filter: blur(5.1px);
+  border: 1px solid rgba(109, 103, 103, 0.74);
+}
+@media (max-width: 991px) {
+  .kapil {
+    margin-top: 60px;
+  }
+}
+@media (max-width: 768px) {
+  .kapil {
+    margin-top: 50px;
+  }
+}
