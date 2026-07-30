@@ -1,0 +1,288 @@
+<div class="payment-history-container">
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div>
+            <h2>Payment History</h2>
+            <p>View and manage all your electricity bill payments.</p>
+        </div>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="row mt-4">
+
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="summary-card">
+                <div class="summary-icon bg-primary">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                </div>
+
+                <div class="summary-content">
+                    <h5>Total Payments</h5>
+                    <h3>25</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="summary-card">
+                <div class="summary-icon bg-success">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+
+                <div class="summary-content">
+                    <h5>Successful</h5>
+                    <h3>23</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="summary-card">
+                <div class="summary-icon bg-warning">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+
+                <div class="summary-content">
+                    <h5>Pending</h5>
+                    <h3>1</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="summary-card">
+                <div class="summary-icon bg-danger">
+                    <i class="fa-solid fa-indian-rupee-sign"></i>
+                </div>
+
+                <div class="summary-content">
+                    <h5>Total Paid</h5>
+                    <h3>₹18,450</h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Filter Section -->
+
+    <div class="filter-card mt-4">
+
+        <div class="row">
+
+            <div class="col-lg-4 mb-3">
+
+               <input
+                 type="text"
+                 class="form-control"
+                 placeholder="Search Transaction ID"
+                 [(ngModel)]="searchText">
+
+            </div>
+
+            <div class="col-lg-3 mb-3">
+
+              <select
+                  class="form-select"
+                  [(ngModel)]="selectedStatus">
+                  
+                  <option>All Status</option>
+                  <option>Success</option>
+                  <option>Pending</option>
+                  <option>Failed</option>
+
+                    </select>
+
+            </div>
+
+            <div class="col-lg-3 mb-3">
+
+              <input
+                type="date"
+                class="form-control"
+                [(ngModel)]="selectedDate">
+
+            </div>
+
+            <div class="col-lg-2 mb-3">
+
+                <button class="btn btn-primary w-100" (click)="searchPayments()">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    Search
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Payment History Table -->
+
+    <div class="table-card mt-4">
+
+        <div class="table-responsive">
+
+            <table class="table table-hover align-middle">
+
+                <thead>
+
+                    <tr>
+
+                        <th>SR.NO</th>
+
+                        <th>Transaction ID</th>
+
+                        <th>Bill No</th>
+
+                        <th>Date</th>
+
+                        <th>Method</th>
+
+                        <th>Amount</th>
+
+                        <th>Status</th>
+
+                        <th>Receipt</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+               <tbody>
+
+               <tr *ngFor="let payment of filteredPayments">
+
+                 <td>{{payment.id}}</td>
+                 
+                 <td>{{payment.transactionId}}</td>
+                 
+                 <td>{{payment.billNo}}</td>
+                 
+                 <td>{{payment.date}}</td>
+                 
+                 <td>{{payment.method}}</td>
+                 
+                 <td>₹{{payment.amount}}</td>
+                 
+                 <td>
+                 
+                 <span
+                 class="badge"
+                 [ngClass]="{
+                 'bg-success':payment.status==='Success',
+                 'bg-warning text-dark':payment.status==='Pending',
+                 'bg-danger':payment.status==='Failed'
+                 }">
+                 
+                 {{payment.status}}
+                 
+                 </span>
+                 
+                 </td>
+                 
+                 <td>
+                 
+                 <button
+                 class="btn btn-sm btn-outline-primary"
+                 (click)="viewReceipt(payment)">
+                 
+                 <i class="fa-solid fa-eye"></i>
+                 
+                 </button>
+                 
+                 </td>
+                 
+                 <td>
+                 
+                 <button
+                 class="btn btn-sm btn-success"
+                 (click)="downloadReceipt(payment)">
+                 
+                 <i class="fa-solid fa-download"></i>
+                 
+                 </button>
+                 
+                 </td>
+
+               </tr>
+               
+               </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <!-- Pagination -->
+
+    <div class="pagination-section mt-4">
+
+        <nav>
+
+            <ul class="pagination ">
+
+                <li class="page-item disabled mr-2">
+
+                    <a class="page-link">
+
+                        Previous
+
+                    </a>
+
+                </li>
+
+                <li class="page-item active mr-2">
+
+                    <a class="page-link">
+
+                        1
+
+                    </a>
+
+                </li>
+<!-- 
+                <li class="page-item">
+
+                    <a class="page-link">
+
+                        2
+
+                    </a>
+
+                </li>
+
+                <li class="page-item">
+
+                    <a class="page-link">
+
+                        3
+
+                    </a>
+
+                </li> -->
+
+                <li class="page-item">
+
+                    <a class="page-link">
+
+                        Next
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</div>

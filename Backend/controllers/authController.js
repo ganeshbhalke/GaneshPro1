@@ -25,7 +25,7 @@ exports.sendOtp = async (req, res) => {
 
   otpStore[email] = {
     otp,
-    expiresAt: Date.now() + 5 * 60 * 1000, // 5 Minutes
+    expiresAt: Date.now() + 3 * 60 * 1000, // 5 Minutes
   };
 
   try {
@@ -51,6 +51,13 @@ exports.sendOtp = async (req, res) => {
         <p>This OTP is valid for 5 minutes.</p>
       `,
     };
+
+//     console.log("Before Brevo");
+
+// const data = await brevo.transactionalEmails.sendTransacEmail(sendSmtpEmail);
+
+// console.log("After Brevo");
+// console.log(data);
 
 const data = await brevo.transactionalEmails.sendTransacEmail(sendSmtpEmail);
     console.log("Mail Sent:", data);

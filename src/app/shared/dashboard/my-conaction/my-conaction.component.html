@@ -1,0 +1,293 @@
+<div class="connection-container mt-5">
+
+
+    <div class="page-header">
+
+        <div>
+
+            <h2>My Connection</h2>
+
+            <p>View your electricity connection details and account information.</p>
+
+        </div>
+
+    </div>
+
+
+    <div class="connection-card mt-4">
+
+        <div class="card-header">
+
+            <h4>
+
+                <i class="fa-solid fa-bolt"></i>
+
+                Connection Details
+
+            </h4>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <label>Consumer Name</label>
+
+                    <h6>{{connection.consumerName}}</h6>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>Connection Number</label>
+
+                     <h6>{{connection.connectionNumber}}</h6>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>Meter Number</label>
+
+                    <h6>{{connection.meterNumber}}</h6>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>Connection Type</label>
+
+                   <h6>{{connection.connectionType}}</h6>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>Load</label>
+
+                    <h6>{{connection.load}}</h6>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>Category</label>
+
+                   <h6>{{connection.category}}</h6>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>Status</label>
+
+                    <span class="badge bg-success">
+
+                        {{connection.status}}
+
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Address Details -->
+
+    <div class="connection-card mt-4">
+
+        <div class="card-header">
+
+            <h4>
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                Address Details
+
+            </h4>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <label>State</label>
+
+                 <h6>{{connection.state}}</h6>
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>City</label>
+
+                    <h6>{{connection.city}}</h6>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>Area</label>
+
+                    <h6>{{connection.area}}</h6>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>PIN Code</label>
+
+                    <h6>{{connection.pinCode}}</h6>
+
+                </div>
+
+                <div class="col-12">
+
+                    <label>Full Address</label>
+
+                   <h6>{{connection.fullAddress}}</h6>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Additional Information -->
+
+    <div class="connection-card mt-4">
+
+        <div class="card-header">
+
+            <h4>
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                Additional Information
+
+            </h4>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <label>Connection Date</label>
+
+                    <h6>{{connection.connectionDate}}</h6>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>Last Bill Date</label>
+
+                    <h6>{{connection.lastBillDate}}</h6>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>Next Bill Date</label>
+
+                   <h6>{{connection.nextBillDate}}</h6>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label>Current Meter Reading</label>
+
+                   <h6>{{connection.meterReading}}</h6>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Quick Actions -->
+
+    <div class="connection-card mt-4">
+
+        <div class="card-header">
+
+            <h4>
+
+                <i class="fa-solid fa-gears"></i>
+
+                Quick Actions
+
+            </h4>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-lg-4 mb-3">
+
+             <button
+               class="btn btn-primary w-100"
+               (click)="downloadCertificate()">
+               
+               <i class="fa-solid fa-download"></i>
+               
+               Download Certificate
+               
+               </button>
+
+                </div>
+
+                <div class="col-lg-4 mb-3">
+
+                   <button
+                    class="btn btn-warning w-100"
+                    (click)="raiseComplaint()">
+                    
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    
+                    Raise Complaint
+                    
+                    </button>
+
+                </div>
+
+                <div class="col-lg-4 mb-3">
+
+                   <button
+                   class="btn btn-success w-100"
+                   (click)="viewBills()">
+                   
+                   <i class="fa-solid fa-file-invoice-dollar"></i>
+                   
+                   View Bills
+                   
+                   </button>
+                   
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

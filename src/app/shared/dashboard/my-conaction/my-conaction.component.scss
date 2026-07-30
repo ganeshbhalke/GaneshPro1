@@ -1,0 +1,193 @@
+/* ==========================================
+            MY CONNECTION
+========================================== */
+
+.connection-container {
+    padding: 30px;
+    background: #f5f7fb;
+    min-height: 100vh;
+}
+
+/* ==========================================
+            PAGE HEADER
+========================================== */
+
+.page-header {
+    margin-bottom: 25px;
+}
+
+.page-header h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 5px;
+}
+
+.page-header p {
+    color: #6b7280;
+    margin: 0;
+}
+
+/* ==========================================
+            CARD
+========================================== */
+
+.connection-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+    transition: .3s;
+}
+
+.connection-card:hover {
+    transform: translateY(-4px);
+}
+
+/* ==========================================
+            CARD HEADER
+========================================== */
+
+.card-header {
+    background: #0d6efd;
+    color: white;
+    padding: 18px 25px;
+}
+
+.card-header h4 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.card-header i {
+    margin-right: 10px;
+}
+
+/* ==========================================
+            CARD BODY
+========================================== */
+
+.card-body {
+    padding: 25px;
+}
+
+/* ==========================================
+            LABELS
+========================================== */
+
+label {
+    display: block;
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+h6 {
+    font-size: 17px;
+    color: #212529;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* ==========================================
+            BADGE
+========================================== */
+
+.badge {
+    padding: 8px 14px;
+    font-size: 13px;
+    border-radius: 20px;
+}
+
+/* ==========================================
+            BUTTONS
+========================================== */
+
+.btn {
+    height: 48px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+            ROW SPACING
+========================================== */
+
+.row .mb-3 {
+    margin-bottom: 20px !important;
+}
+
+/* ==========================================
+            RESPONSIVE
+========================================== */
+
+@media (max-width:992px) {
+
+    .connection-container {
+        padding: 20px;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+}
+
+@media (max-width:768px) {
+
+    .page-header h2 {
+        font-size: 25px;
+    }
+
+    .card-header {
+        padding: 15px 20px;
+    }
+
+    .card-header h4 {
+        font-size: 18px;
+    }
+
+    h6 {
+        font-size: 15px;
+    }
+
+    .btn {
+        height: 45px;
+    }
+
+}
+
+@media (max-width:576px) {
+
+    .connection-container {
+        padding: 15px;
+    }
+
+    .page-header {
+        text-align: center;
+    }
+
+    .page-header h2 {
+        font-size: 22px;
+    }
+
+    .card-body {
+        padding: 18px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+}

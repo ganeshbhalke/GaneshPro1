@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
   about: string = '';
 
   profileImage: string = '';
-  avatar: string = 'G';
+  avatar: string = '';
 
   constructor() {}
 
@@ -24,9 +24,7 @@ export class ProfileComponent implements OnInit {
     this.loadProfile();
   }
 
-  // ==========================
   // Load Profile
-  // ==========================
 
   loadProfile(): void {
 
@@ -50,9 +48,7 @@ this.profileImage = data.profileImage || '';
 
   }
 
-  // ==========================
   // Save Profile
-  // ==========================
 
   saveProfile(): void {
 
@@ -81,24 +77,23 @@ this.profileImage = data.profileImage || '';
 
       text: 'Your profile has been updated successfully.',
 
-      confirmButtonColor: '#198754'
+      confirmButtonColor: '#198754',
+      timer:2000
 
     });
-    this.userName = '';
-this.userEmail = '';
-this.userPhone = '';
-this.userRole = '';
-this.userAddress = '';
-this.about = '';
-this.profileImage = '';
-this.avatar = '';
+//     this.userName = '';
+// this.userEmail = '';
+// this.userPhone = '';
+// this.userRole = '';
+// this.userAddress = '';
+// this.about = '';
+// this.profileImage = '';
+// this.avatar = '';
 
   }
 
 
-  // ==========================
 // Upload Profile Image
-// ==========================
 
 onImageSelected(event: any): void {
 

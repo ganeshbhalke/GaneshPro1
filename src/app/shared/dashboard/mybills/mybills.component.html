@@ -1,1 +1,425 @@
-<p>mybills works!</p>
+<div class="my-bills-container mt-5">
+
+    <!-- Header -->
+
+    <div class="page-header">
+
+        <div>
+
+            <h2>My Bills</h2>
+
+            <p class="ganesh">Manage and track all electricity bills</p>
+
+        </div>
+
+        <div class="search-section">
+
+            <input
+                type="text"
+                class="form-control"
+                placeholder="Search Bill..."
+                [(ngModel)]="searchText"
+                (input)="filterBills()"
+            >
+
+            <select
+                class="form-select"
+                [(ngModel)]="selectedStatus"
+                (change)="filterBills()"
+            >
+
+                <option>All Bills</option>
+                <option>Paid</option>
+                <option>Pending</option>
+                <option>Overdue</option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- Summary Cards -->
+
+    <div class="summary-cards">
+
+        <div class="summary-card">
+
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+
+            <h3>{{totalBills}}</h3>
+
+            <span>Total Bills</span>
+
+        </div>
+
+        <div class="summary-card paid">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <h3>{{paidBills}}</h3>
+
+            <span>Paid Bills</span>
+
+        </div>
+
+        <div class="summary-card pending">
+
+            <i class="fa-solid fa-clock"></i>
+
+            <h3>{{pendingBills}}</h3>
+
+            <span>Pending Bills</span>
+
+        </div>
+
+        <div class="summary-card overdue">
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+            <h3>{{overdueBills}}</h3>
+
+            <span>Overdue Bills</span>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- Bills Table -->
+
+    <div class="table-wrapper">
+
+        <table class="table table-hover align-middle">
+
+            <thead>
+
+                <tr>
+
+                    <th>Bill No</th>
+                    <th>Equipment</th>
+                    <th>Category</th>
+                    <th>Billing Month</th>
+                    <th>Due Date</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr *ngFor="let bill of filteredBills">
+
+                    <td>{{bill.billNo}}</td>
+
+                    <td>{{bill.equipment}}</td>
+
+                    <td>{{bill.category}}</td>
+
+                    <td>{{bill.month}}</td>
+
+                    <td>{{bill.dueDate}}</td>
+
+                    <td>₹ {{bill.amount}}</td>
+
+                    <td>
+
+                        <span
+                            class="badge"
+                            [ngClass]="{
+
+                            'bg-success':bill.status=='Paid',
+
+                            'bg-warning text-dark':bill.status=='Pending',
+
+                            'bg-danger':bill.status=='Overdue'
+
+                        }">
+
+                            {{bill.status}}
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                      <button
+    class="btn btn-primary btn-sm"
+    (click)="showBill(bill)">
+
+    <i class="fa-solid fa-eye"></i>
+
+    View
+
+</button>
+
+
+                    </td>
+
+
+                </tr>
+
+                <tr *ngIf="filteredBills.length==0">
+
+                    <td colspan="8" class="text-center text-muted py-5">
+
+                        No Bills Found
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+
+
+
+    <!-- Pagination -->
+
+    <div class="pagination-wrapper">
+
+        <button class="btn btn-outline-primary">
+
+          <---           
+
+        </button>
+
+        <button class="btn btn-danger">
+
+            1
+
+        </button>
+
+        <!-- <button class="btn btn-outline-primary">
+
+            2
+
+        </button> -->
+
+        <button class="btn btn-outline-primary">
+
+            --->
+
+        </button>
+
+    </div>
+
+
+    <!-- ===================== BILL DETAILS MODAL ===================== -->
+
+<div class="bill-modal" *ngIf="selectedBill">
+
+    <div class="bill-content">
+
+        <div class="bill-header">
+
+            <div>
+
+                <h3>
+
+                    <i class="fa-solid fa-file-invoice-dollar text-primary"></i>
+
+                    Electricity Bill
+
+                </h3>
+
+                <small class="text-muted">
+
+                    Electricity Management System
+
+                </small>
+
+            </div>
+
+            <button
+                class="btn-close-custom"
+                (click)="closeBill()">
+
+                ✕
+
+            </button>
+
+        </div>
+
+        <hr>
+
+        <div class="row">
+
+            <div class="col-md-6 mb-3">
+
+                <label class="fw-bold">Bill Number</label>
+
+                <p>{{selectedBill.billNo}}</p>
+
+            </div>
+
+            <div class="col-md-6 mb-3">
+
+                <label class="fw-bold">Equipment</label>
+
+                <p>{{selectedBill.equipment}}</p>
+
+            </div>
+
+            <div class="col-md-6 mb-3">
+
+                <label class="fw-bold">Category</label>
+
+                <p>{{selectedBill.category}}</p>
+
+            </div>
+
+            <div class="col-md-6 mb-3">
+
+                <label class="fw-bold">Billing Month</label>
+
+                <p>{{selectedBill.month}}</p>
+
+            </div>
+
+            <div class="col-md-6 mb-3">
+
+                <label class="fw-bold">Due Date</label>
+
+                <p>{{selectedBill.dueDate}}</p>
+
+            </div>
+
+            <div class="col-md-6 mb-3">
+
+                <label class="fw-bold">Status</label>
+
+                <p>
+
+                    <span
+                        class="badge"
+                        [ngClass]="{
+
+                        'bg-success':selectedBill.status=='Paid',
+
+                        'bg-warning text-dark':selectedBill.status=='Pending',
+
+                        'bg-danger':selectedBill.status=='Overdue'
+
+                    }">
+
+                        {{selectedBill.status}}
+
+                    </span>
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <table class="table table-bordered">
+
+            <thead>
+
+                <tr>
+
+                    <th>Description</th>
+
+                    <th class="text-end">Amount</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>Electricity Charges</td>
+
+                    <td class="text-end">
+
+                        ₹ {{selectedBill.amount}}
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>GST (18%)</td>
+
+                    <td class="text-end">
+
+                        ₹ {{selectedBill.amount * 0.18 | number:'1.0-0'}}
+
+                    </td>
+
+                </tr>
+
+                <tr class="table-primary">
+
+                    <th>Total Amount</th>
+
+                    <th class="text-end">
+
+                        ₹ {{selectedBill.amount + (selectedBill.amount * 0.18) | number:'1.0-0'}}
+
+                    </th>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <div class="text-end mt-4">
+
+            <button
+                class="btn btn-secondary me-2"
+                (click)="closeBill()">
+
+                Close
+
+            </button>
+
+            <button
+                class="btn btn-success me-2">
+
+                <i class="fa-solid fa-print"></i>
+
+                Print
+
+            </button>
+
+           <button
+              class="btn btn-primary"
+              (click)="downloadBill()">
+              
+              <i class="fa-solid fa-download"></i>
+              
+              Download PDF
+              
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>

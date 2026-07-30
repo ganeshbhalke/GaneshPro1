@@ -1,0 +1,371 @@
+.payment-container {
+    padding: 30px;
+    background: #f5f7fb;
+    min-height: 100vh;
+}
+
+        // PAGE HEADER
+
+.payment-header {
+    margin-bottom: 30px;
+}
+
+.payment-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 5px;
+}
+
+.payment-header p {
+    color: #6b7280;
+    margin: 0;
+}
+
+        // COMMON CARD
+
+.bill-summary,
+.payment-card,
+.recent-payments {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+    overflow: hidden;
+    transition: .3s;
+}
+
+.bill-summary:hover,
+.payment-card:hover,
+.recent-payments:hover {
+    transform: translateY(-5px);
+}
+
+        // CARD HEADER
+
+.card-header {
+    background: #0d6efd;
+    color: white;
+    padding: 18px 25px;
+}
+
+.card-header h4 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.card-header i {
+    margin-right: 10px;
+}
+
+    //   BILL SUMMARY
+
+.summary-body {
+    padding: 25px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    font-size: 15px;
+}
+
+.summary-item span:first-child {
+    color: #6b7280;
+}
+
+.summary-item strong {
+    color: #212529;
+}
+
+.total-section {
+    text-align: center;
+}
+
+.total-section span {
+    color: #6b7280;
+}
+
+.total-section h2 {
+    color: #0d6efd;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+    //   PAYMENT CARD
+
+.payment-body {
+    padding: 30px;
+}
+
+.payment-body h5 {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #1f2937;
+}
+
+    //   PAYMENT METHODS
+
+.payment-methods {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.payment-methods label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 15px;
+    cursor: pointer;
+    transition: .3s;
+    font-weight: 500;
+}
+
+.payment-methods label:hover {
+    border-color: #0d6efd;
+    background: #eef5ff;
+}
+
+.payment-methods input {
+    transform: scale(1.2);
+}
+
+.payment-methods i {
+    font-size: 22px;
+    color: #0d6efd;
+}
+
+    //   FORM
+
+.form-label,
+label {
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.form-control {
+    height: 48px;
+    border-radius: 10px;
+    border: 1px solid #dcdfe4;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #0d6efd;
+}
+
+    //   BUTTONS
+
+.btn-success,
+.btn-primary {
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.payment-footer {
+    margin-top: 25px;
+    text-align: right;
+}
+
+    //   TABLE
+
+.recent-payments {
+    margin-top: 40px;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table thead {
+    background: #f1f5f9;
+}
+
+.table th {
+    padding: 18px;
+    font-weight: 600;
+}
+
+.table td {
+    padding: 18px;
+    vertical-align: middle;
+}
+
+.table tbody tr:hover {
+    background: #f8fbff;
+}
+
+    //   BADGE
+
+.badge {
+    padding: 8px 12px;
+    font-size: 13px;
+}
+
+    //   RESPONSIVE
+
+@media(max-width:992px){
+
+.payment-methods{
+
+grid-template-columns:1fr;
+
+}
+
+.bill-summary{
+
+margin-bottom:25px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.payment-container{
+
+padding:15px;
+
+}
+
+.payment-body{
+
+padding:20px;
+
+}
+
+.payment-footer{
+
+text-align:center;
+
+}
+
+.payment-footer .btn{
+
+width:100%;
+
+}
+
+.card-header{
+
+padding:15px 20px;
+
+}
+
+.table{
+
+font-size:14px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.payment-header h2{
+
+font-size:26px;
+
+}
+
+.summary-item{
+
+font-size:14px;
+
+}
+
+.payment-methods label{
+
+padding:12px;
+
+}
+
+}
+
+
+//QR 
+
+.qr-overlay{
+
+position:fixed;
+
+left:0;
+
+top:0;
+
+width:100%;
+
+height:100%;
+
+background:rgba(0,0,0,.6);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:9999;
+
+}
+
+.gana{
+    font-size: 25px;
+    padding: 8px;
+
+}
+
+.qr-popup{
+
+width:380px;
+
+background:#fff;
+
+padding:30px;
+
+border-radius:15px;
+
+text-align:center;
+
+box-shadow:0 15px 40px rgba(0,0,0,.3);
+
+animation:popup .3s;
+
+}
+
+.qr-popup img{
+
+width:220px;
+
+margin:20px auto;
+
+display:block;
+
+}
+
+@keyframes popup{
+
+from{
+
+transform:scale(.7);
+
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}

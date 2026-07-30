@@ -1,3 +1,8 @@
+// const fetch = require("node-fetch");
+
+// global.fetch = fetch;
+
+
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();

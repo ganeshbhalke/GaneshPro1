@@ -10,6 +10,10 @@ import { AuthGuard } from './shared/guards/auth.guard';
 import { HomeComponent } from './shared/dashboard/home/home.component';
 import { RegisterComponent } from './shared/dashboard/register/register.component';
 import { ProfileComponent } from './shared/dashboard/profile/profile.component';
+import { MybillsComponent } from './shared/dashboard/mybills/mybills.component';
+import { MakepaymentComponent } from './shared/dashboard/makepayment/makepayment.component';
+import { HistoryComponent } from './shared/dashboard/history/history.component';
+import { MyConactionComponent } from './shared/dashboard/my-conaction/my-conaction.component';
 
 
 const routes: Routes = [
@@ -58,7 +62,28 @@ const routes: Routes = [
     component:EditelectricityComponent,
     canActivate:[AuthGuard]
   },
+   {
+    path:'mybills',
+    component:MybillsComponent,
+    canActivate:[AuthGuard]
+  },
 
+   {
+    path:'makepayment',
+    component:MakepaymentComponent,
+    canActivate:[AuthGuard]
+  },
+    {
+    path:'histroy',
+    component:HistoryComponent,
+    canActivate:[AuthGuard]
+  },
+
+   {
+    path:'myConaction',
+    component:MyConactionComponent,
+    canActivate:[AuthGuard]
+  },
   {
     path:'**',
     redirectTo:'login'

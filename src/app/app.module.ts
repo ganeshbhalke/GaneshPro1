@@ -23,7 +23,9 @@ import { HomeComponent } from './shared/dashboard/home/home.component';
 import { RegisterComponent } from './shared/dashboard/register/register.component';
 import { ProfileComponent } from './shared/dashboard/profile/profile.component';
 import { MybillsComponent } from './shared/dashboard/mybills/mybills.component';
-import { MakepaymentComponent } from './shared/dashboard/makepayment/makepayment.component'
+import { MakepaymentComponent } from './shared/dashboard/makepayment/makepayment.component';
+import { HistoryComponent } from './shared/dashboard/history/history.component';
+import { MyConactionComponent } from './shared/dashboard/my-conaction/my-conaction.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,9 @@ import { MakepaymentComponent } from './shared/dashboard/makepayment/makepayment
     RegisterComponent,
     ProfileComponent,
     MybillsComponent,
-    MakepaymentComponent
+    MakepaymentComponent,
+    HistoryComponent,
+    MyConactionComponent
   ],
   imports: [
     BrowserModule,
