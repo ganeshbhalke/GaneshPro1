@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   showPassword = false;
   showOtpBox = false;
   loading = false;
+  isLoading: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -83,9 +84,15 @@ export class LoginComponent implements OnInit {
 
   verifyOtp() {
 
+  this.isLoading = true;
+
+  setTimeout(() => {
+
     this.authService.verifyOtp(this.email, this.otp).subscribe({
 
       next: (res) => {
+
+        this.isLoading = false;
 
         localStorage.setItem('isLoggedIn', 'true');
 
@@ -95,10 +102,11 @@ export class LoginComponent implements OnInit {
         });
 
         this.router.navigate(['/dashboard']);
-
       },
 
       error: (err) => {
+
+        this.isLoading = false;
 
         Swal.fire({
           icon: 'error',
@@ -107,7 +115,11 @@ export class LoginComponent implements OnInit {
 
       }
 
+    
     });
+  
+
+    },10000);
 
   }
 

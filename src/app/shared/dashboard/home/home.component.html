@@ -3,6 +3,8 @@
 </h1> -->
 
 <!-- ================= NAVBAR ================= -->
+<app-loader *ngIf="isLoading"></app-loader>
+<div *ngIf="!isLoading">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
   <div class="container ganesh">
@@ -337,3 +339,4 @@
     <small> © 2026 Electricity Management System. All Rights Reserved. </small>
   </div>
 </footer>
+</div>

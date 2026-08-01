@@ -1,4 +1,6 @@
-<div class="login-container">
+<app-loader *ngIf="isLoading"></app-loader>
+
+<div class="login-container" *ngIf="!isLoading">
 
   <div class="login-card glass-card">
 
@@ -38,6 +40,7 @@
     <div *ngIf="showOtpBox" class="mt-4">
 
       <label>Enter OTP</label>
+<!-- <div *ngIf="!isLoading"> -->
 
       <input
         type="text"
