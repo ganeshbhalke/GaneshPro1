@@ -206,14 +206,14 @@
                     </div>
 
                     <button
-class="btn btn-success"
-(click)="showQRCode = true">
-
-<i class="fa-solid fa-qrcode"></i>
-
-Pay ₹499
-
-</button>
+                      class="btn btn-success"
+                      (click)="showQRCode = true">
+                      
+                      <i class="fa-solid fa-qrcode"></i>
+                      
+                      Pay ₹499
+                      
+                      </button>
 
                     <hr>
 
@@ -326,6 +326,7 @@ Pay ₹499
 
         </div>
 
+        <div class="table-responsive">
         <table class="table table-hover mt-4">
 
             <thead>
@@ -417,50 +418,51 @@ Pay ₹499
             </tbody>
 
         </table>
+        </div>
 
     </div>
 
-    <div
-class="qr-overlay"
-*ngIf="showQRCode">
+              
+            <div class="qr-overlay"
+           *ngIf="showQRCode">
+           
+           <div class="qr-popup">
+           
+           <h3>Scan & Pay</h3>
+           
+           <img
+           [src]="qrCodeImage"
+           alt="QR Code">
+           
+           <p>
+           
+           Amount :
+           <strong>₹2,450</strong>
+           
+           </p>
+           
+           <div class="mt-3 d-flex justify-content-between">
+           
+           <button
+           class="btn btn-success mr-2 gana"
+           (click)="payNow()">
+           
+            Done
+           
+           </button>
+           
+           <button
+           class="btn btn-danger mr-2"
+           (click)="showQRCode=false">
+           
+           Close
+           
+       </button>
 
-<div class="qr-popup">
+    </div>
 
-<h3>Scan & Pay</h3>
+    </div>
 
-<img
-[src]="qrCodeImage"
-alt="QR Code">
-
-<p>
-
-Amount :
-<strong>₹2,450</strong>
-
-</p>
-
-<div class="mt-3 d-flex justify-content-between">
-
-<button
-class="btn btn-success mr-2 gana"
-(click)="payNow()">
-
- Done
-
-</button>
-
-<button
-class="btn btn-danger mr-2"
-(click)="showQRCode=false">
-
-Close
-
-</button>
-
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </div>
